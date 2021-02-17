@@ -1,6 +1,9 @@
+
+/* SOIREES */
 #soirees{
     width: 70%;
     margin: auto;
+    display: none;
 }
 
 .soiree {
@@ -38,3 +41,10 @@
 .soiree p:first-child {
     text-align: left;
 }
+
+/* ATTRIBUTION */
+#attribution {
+     width: 80%;
+    margin: auto;
+}
+

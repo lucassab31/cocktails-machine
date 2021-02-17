@@ -17,7 +17,7 @@
 <body>
     <header>
         <div class="header-logo">
-            <img src="includes/logo.jpg" alt="Logo" width="100">
+            <img src="includes/logo.jpg" alt="Logo" width="80">
             <h1>Coktails Machine</h1>
         </div>
         <nav>
