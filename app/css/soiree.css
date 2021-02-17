@@ -44,7 +44,35 @@
 
 /* ATTRIBUTION */
 #attribution {
-     width: 80%;
+    width: 80%;
     margin: auto;
+    position: relative;
+}
+
+.presets {
+    position: absolute;
+    top: 0;
+    right: -103px;
+    bottom: 0;
+    width: 75px;
+    display: grid;
+    grid-template-rows: repeat(4, 1fr);
+   
+}
+
+.preset{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #3b3f42;
+    height: 100px;
+    width: 75px;
+    font-size: 2em;
+    font-weight: 700;
+    border-radius: 10px 0 0 10px;
+    -webkit-border-radius: 10px 0 0 10px;
+    -moz-border-radius: 10px 0 0 10px;
+    -ms-border-radius: 10px 0 0 10px;
+    -o-border-radius: 10px 0 0 10px;
 }
 

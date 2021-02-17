@@ -27,6 +27,12 @@
         </div>
     </section>
     <section id="attribution">
+        <div class="presets">
+            <a href="" class="preset">1</a>
+            <a href="" class="preset">2</a>
+            <a href="" class="preset">3</a>
+            <a href="" class="preset">4</a>
+        </div>
         <div class="section-title">
             <h1>Choix des bouteilles</h1>
         </div>
