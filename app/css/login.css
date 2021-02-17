@@ -1,0 +1,59 @@
+#pin_login {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+.pin-header {
+    font-size: 2em;
+    margin: 1em;
+}
+#pin-form {
+    width : 255px;
+}
+
+#pin-form input {
+    width: 100%;
+    margin: 1em 0;
+    padding: 5px;   
+    background: none;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    color:#fff;
+    font-size: 1.2em;
+    text-align: center;
+
+}
+.pin-pad {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.pin-pad button {
+    height: 75px;
+    width: 75px;
+    background: none;
+    color: #fff;
+    font-size: 1.4em;
+    outline: none;
+    cursor: pointer;
+    border: 2px solid #fff;
+    margin: 5px ;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+
+.pin-pad button:hover {
+    color: #000;
+    background-color: #fff;
+}
+
+

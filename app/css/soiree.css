@@ -1,0 +1,40 @@
+#soirees{
+    width: 70%;
+    margin: auto;
+}
+
+.soiree {
+    display: grid;
+    grid-template-columns: 30% 30% 30% 10%;
+    width: 100%;
+    margin: 1em 0;
+    padding: 10px;
+    background-color: #3b3f42;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    text-align: center;
+    font-size: 1.2em;
+}
+
+.soiree.first {
+    grid-template-columns: 90% 10%;
+    font-weight: 700;
+    font-size: 1.4em;
+}
+
+
+
+.soiree p {
+    margin: auto 0;
+}
+.soiree a {
+    font-size: 1.8em;
+    text-align: right;
+}
+
+.soiree p:first-child {
+    text-align: left;
+}
