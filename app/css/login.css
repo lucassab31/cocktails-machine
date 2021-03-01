@@ -3,12 +3,9 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100%;
+    margin-top: 3em;
 }
-.pin-header {
-    font-size: 2em;
-    margin: 1em;
-}
+
 #pin-form {
     width : 255px;
 }

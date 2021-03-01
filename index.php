@@ -1,8 +1,5 @@
 <?php require_once('includes/header.php'); ?>
     <section id="pin_login">
-        <div class="pin-header">
-            <h1>Cocktails Machine</h1>
-        </div>
         <div class="pin-content">
             <form method="post" id="pin-form">
                 <input type="password" placeholder="Entrez le code" id="pin-input" name="pin" disabled>

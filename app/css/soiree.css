@@ -4,6 +4,7 @@
     width: 70%;
     margin: auto;
     display: none;
+    
 }
 
 .soiree {
@@ -33,10 +34,11 @@
 .soiree p {
     margin: auto 0;
 }
-.soiree a {
+.soiree i {
     font-size: 1.8em;
     text-align: right;
 }
+
 
 .soiree p:first-child {
     text-align: left;
@@ -47,6 +49,7 @@
     width: 80%;
     margin: auto;
     position: relative;
+    /* display: none; */
 }
 
 .presets {
@@ -57,7 +60,6 @@
     width: 75px;
     display: grid;
     grid-template-rows: repeat(4, 1fr);
-   
 }
 
 .preset{
@@ -75,4 +77,58 @@
     -ms-border-radius: 10px 0 0 10px;
     -o-border-radius: 10px 0 0 10px;
 }
+/* POPUP */
+.popup-content{
+    display: flex;
+    padding: 5px 10px;
+    
+}
 
+.popup-content-volume{
+    width: 50%;
+}
+
+.popup-content-volume-jauge input{
+    width: 100%;
+    margin-top: 15px;
+}
+
+.popup-content-volume-jauge input[type=range] + datalist {
+    display: block;
+    margin-top: -4px;
+}
+
+.popup-content-volume-jauge input[type=range] + datalist option {
+    display: inline-block;
+    width: calc((100% - 12px) / (5 - 1));
+    text-align: center;
+}
+.popup-content-volume-jauge input[type=range] + datalist option:first-child {
+    width: calc((100% - 12px) / ((5 - 1) * 2) + 6px);
+    text-align: left;
+}
+.popup-content-volume-jauge input[type=range] + datalist option:last-child {
+    width: calc((100% - 12px) / ((5 - 1) * 2) + 6px);
+    text-align: right;
+}
+.popup-content-volume-bouton {
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    justify-items:center;
+}
+
+.popup-content-volume-bouton button{
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+
+.popup-content-volume-bouton button.selected {
+    border: 2px solid #fff;
+    font-weight: 700;
+}
