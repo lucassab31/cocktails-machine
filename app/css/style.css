@@ -176,7 +176,7 @@ a {
     -moz-border-radius: 20px;
     -ms-border-radius: 20px;
     -o-border-radius: 20px;
-    padding: 20px;
+    padding: 10px 10px;
 }
 
 .popup-header {
@@ -184,12 +184,24 @@ a {
     color: #ff7f00;
 }
 
-.popup-header h2 {
+.popup-header h2, .popup-header h4 {
     display: inline;
 }
 
-.popup-header span {
+.popup-header h4 {
+    color: #fff;
+    margin-left: 150px;
+    font-size: 1.6rem;
+    font-weight: 200;
+}
+
+.popup-header .close {
     float: right;
     color:#fff;
     cursor: pointer;
+}
+
+.popup-header span {
+    font-weight: 500;
+    color: orangered;
 }
