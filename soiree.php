@@ -1,119 +1,275 @@
 <?php require_once('includes/header.php'); ?>
-    <section id="soirees">
-        <div class="section-title">
-            <h1>Choix de la soirée</h1>
-        </div>
-        <a href="#" class="soiree first">
-            <p>Ajouter une soirée</p>
-            <i class="fas fa-plus-circle"></i>
-        </a>
-        <a href="#" class="soiree">
-            <p>12/05/21</p>
-            <p>Chez Mini Trump</p>
-            <p>8 personnes</p>
-            <i class="fas fa-arrow-circle-right"></i>
-        </a>
-        <a href="#" class="soiree">
-            <p>12/05/21</p>
-            <p>Chez Mini Trump</p>
-            <p>8 personnes</p>
-            <i class="fas fa-arrow-circle-right"></i>
-        </a>
-        <a href="#" class="soiree">
-            <p>12/05/21</p>
-            <p>Chez Mini Trump</p>
-            <p>8 personnes</p>
-           <i class="fas fa-arrow-circle-right"></i>
-        </a>
-    </section>
-    <section id="attribution">
-        <div class="presets">
-            <a href="" class="preset">1</a>
-            <a href="" class="preset">2</a>
-            <a href="" class="preset">3</a>
-            <a href="" class="preset">4</a>
-        </div>
-        <div class="section-title">
-            <h1>Choix des bouteilles</h1>
-        </div>
-        <div class="page-selector">
-            <a class="active" href="">Alcools</a>
-            <a href="">Dilluants</a>
-        </div>
-        <div class="choix">
-            <a href="?id=1&tuyau=8" class="item">
-                <div class="item-header">
-                    <h3>Vodka</h3>
+<?php
+    if (isset($_GET['page']) && !empty($_GET['page'])) {
+        if ($_GET['page'] == "soiree") {
+            ?>
+            <section id="soirees">
+                <div class="section-title">
+                    <h1>Choix de la soirée</h1>
                 </div>
-                <div class="item-content">
-                    <div class="item-icon">
-                        <i class="fas fa-wine-bottle"></i>
-                    </div>
-                    <div class="item-add">
-                        <i class="fas fa-plus"></i>
-                    </div>
-                   
+                <a href="?page=ajoutS" class="soiree first">
+                    <p>Ajouter une soirée</p>
+                    <i class="fas fa-plus-circle"></i>
+                </a>
+                <?php
+                    $select = $bdd->prepare("SELECT * FROM soirees ORDER BY dateSoiree DESC");
+                    $select->execute();
+                    while ($data = $select->fetch()) {
+                        ?>
+                        <a href="?page=attribution&subpage=alcools" class="soiree">
+                            <p><?= $data['dateSoiree'] ?></p>
+                            <p><?= $data['lieu'] ?></p>
+                            <p><?= $data['nbPersonnes'] ?> personnes</p>
+                            <i class="fas fa-arrow-circle-right"></i>
+                        </a>
+                        <?php
+                    }
+                ?>
+            </section>
+            <?php
+        } else if ($_GET['page'] == "attribution") {
+            ?>
+            <section id="attribution">
+                <div class="presets">
+                    <a href="" class="preset">1</a>
+                    <a href="" class="preset">2</a>
+                    <a href="" class="preset">3</a>
+                    <a href="" class="preset">4</a>
                 </div>
-            </a>
-            <a href="?id=1&tuyau=8" class="item">
-                <div class="item-header">
-                    <h3>Vodka Orange</h3>
+                <div class="section-title">
+                    <h1>Choix des bouteilles</h1>
                 </div>
-                <div class="item-content">
-                    <div class="item-icon">
-                        <i class="fas fa-wine-bottle"></i>
-                    </div>
-                    <div class="item-add">
-                        <i class="fas fa-plus"></i>
-                    </div>
-                   
+                <div class="page-selector">
+                    <a <?= ($_GET['subpage'] == "alcools") ? 'class="active"' : "" ?> href="?page=attribution&subpage=alcools">Alcools</a>
+                    <a <?= ($_GET['subpage'] == "diluants") ? 'class="active"' : "" ?> href="?page=attribution&subpage=diluants">Dilluants</a>
                 </div>
-            </a>
-            <a href="?id=1&tuyau=8" class="item">
-                <div class="item-header">
-                    <h3>Vodka Kas</h3>
+                <div class="choix">
+                    <?php
+                        if (isset($_GET['subpage']) && !empty($_GET['subpage'])) {
+                            if ($_GET['subpage'] == "alcools") {
+                                $select = $bdd->prepare("SELECT * FROM alcools ORDER BY nom");
+                                $select->execute();
+                                if ($select->rowCount() > 0) {
+                                    while ($data = $select->fetch()) {
+                                        ?>
+                                        <a href="?page=attribution&subpage=alcools&action=add&id=<?= $data['idAlcool'] ?>" class="item">
+                                            <div class="item-header">
+                                                <h3><?= $data['nom'] ?></h3>
+                                            </div>
+                                            <div class="item-content">
+                                                <div class="item-icon">
+                                                    <i class="fas fa-wine-bottle"></i>
+                                                </div>
+                                                <div class="item-add">
+                                                    <i class="fas fa-plus"></i>
+                                                </div>
+                                            
+                                            </div>
+                                        </a>
+                                        <?php
+                                    }
+                                    ?>
+                                    <a href="?page=attribution&subpage=alcools&action=add&id=1" class="item">
+                                        <div class="item-header">
+                                            <h3>Test</h3>
+                                        </div>
+                                        <div class="item-content">
+                                            <div class="item-icon">
+                                                <i class="fas fa-wine-bottle"></i>
+                                            </div>
+                                            <div class="item-add">
+                                                <i class="fas fa-plus"></i>
+                                            </div>
+                                        
+                                        </div>
+                                    </a>
+                                    <a href="?page=attribution&subpage=alcools&action=add&id=1" class="item">
+                                        <div class="item-header">
+                                            <h3>Test</h3>
+                                        </div>
+                                        <div class="item-content">
+                                            <div class="item-icon">
+                                                <i class="fas fa-wine-bottle"></i>
+                                            </div>
+                                            <div class="item-add">
+                                                <i class="fas fa-plus"></i>
+                                            </div>
+                                        
+                                        </div>
+                                    </a>
+                                    <a href="?page=attribution&subpage=alcools&action=add&id=1" class="item">
+                                        <div class="item-header">
+                                            <h3>Test</h3>
+                                        </div>
+                                        <div class="item-content">
+                                            <div class="item-icon">
+                                                <i class="fas fa-wine-bottle"></i>
+                                            </div>
+                                            <div class="item-add">
+                                                <i class="fas fa-plus"></i>
+                                            </div>
+                                        
+                                        </div>
+                                    </a>
+                                    <a href="?page=attribution&subpage=alcools&action=add&id=1" class="item">
+                                        <div class="item-header">
+                                            <h3>Test</h3>
+                                        </div>
+                                        <div class="item-content">
+                                            <div class="item-icon">
+                                                <i class="fas fa-wine-bottle"></i>
+                                            </div>
+                                            <div class="item-add">
+                                                <i class="fas fa-plus"></i>
+                                            </div>
+                                        
+                                        </div>
+                                    </a>
+                                    <a href="?page=attribution&subpage=alcools&action=add&id=1" class="item">
+                                        <div class="item-header">
+                                            <h3>Test</h3>
+                                        </div>
+                                        <div class="item-content">
+                                            <div class="item-icon">
+                                                <i class="fas fa-wine-bottle"></i>
+                                            </div>
+                                            <div class="item-add">
+                                                <i class="fas fa-plus"></i>
+                                            </div>
+                                        
+                                        </div>
+                                    </a>
+                                    <a href="?page=attribution&subpage=alcools&action=add&id=1" class="item">
+                                        <div class="item-header">
+                                            <h3>Test</h3>
+                                        </div>
+                                        <div class="item-content">
+                                            <div class="item-icon">
+                                                <i class="fas fa-wine-bottle"></i>
+                                            </div>
+                                            <div class="item-add">
+                                                <i class="fas fa-plus"></i>
+                                            </div>
+                                        
+                                        </div>
+                                    </a>
+                                    <a href="?page=attribution&subpage=alcools&action=add&id=1" class="item">
+                                        <div class="item-header">
+                                            <h3>Test</h3>
+                                        </div>
+                                        <div class="item-content">
+                                            <div class="item-icon">
+                                                <i class="fas fa-wine-bottle"></i>
+                                            </div>
+                                            <div class="item-add">
+                                                <i class="fas fa-plus"></i>
+                                            </div>
+                                        
+                                        </div>
+                                    </a>
+                                    <a href="?page=attribution&subpage=alcools&action=add&id=1" class="item">
+                                        <div class="item-header">
+                                            <h3>Test</h3>
+                                        </div>
+                                        <div class="item-content">
+                                            <div class="item-icon">
+                                                <i class="fas fa-wine-bottle"></i>
+                                            </div>
+                                            <div class="item-add">
+                                                <i class="fas fa-plus"></i>
+                                            </div>
+                                        
+                                        </div>
+                                    </a>
+                                    <a href="?page=attribution&subpage=alcools&action=add&id=1" class="item">
+                                        <div class="item-header">
+                                            <h3>Test</h3>
+                                        </div>
+                                        <div class="item-content">
+                                            <div class="item-icon">
+                                                <i class="fas fa-wine-bottle"></i>
+                                            </div>
+                                            <div class="item-add">
+                                                <i class="fas fa-plus"></i>
+                                            </div>
+                                        
+                                        </div>
+                                    </a>
+                                    <a href="?page=attribution&subpage=alcools&action=add&id=1" class="item">
+                                        <div class="item-header">
+                                            <h3>Test</h3>
+                                        </div>
+                                        <div class="item-content">
+                                            <div class="item-icon">
+                                                <i class="fas fa-wine-bottle"></i>
+                                            </div>
+                                            <div class="item-add">
+                                                <i class="fas fa-plus"></i>
+                                            </div>
+                                        
+                                        </div>
+                                    </a>
+                                    <a href="?page=attribution&subpage=alcools&action=add&id=1" class="item">
+                                        <div class="item-header">
+                                            <h3>Test</h3>
+                                        </div>
+                                        <div class="item-content">
+                                            <div class="item-icon">
+                                                <i class="fas fa-wine-bottle"></i>
+                                            </div>
+                                            <div class="item-add">
+                                                <i class="fas fa-plus"></i>
+                                            </div>
+                                        
+                                        </div>
+                                    </a>
+                                    <?php
+                                } else {
+                                    echo "Aucun alcools trouvé";
+                                }
+                            } else if ($_GET['subpage'] == "diluants") {
+                                $select = $bdd->prepare("SELECT * FROM diluants ORDER BY nom");
+                                $select->execute();
+
+                                if ($select->rowCount() > 0) {
+                                    while ($data = $select->fetch()) {
+                                        ?>
+                                        <a href="?page=attribution&subpage=alcools&action=add&id=<?= $data['idAlcool'] ?>" class="item">
+                                            <div class="item-header">
+                                                <h3><?= $data['nom'] ?></h3>
+                                            </div>
+                                            <div class="item-content">
+                                                <div class="item-icon">
+                                                    <i class="fas fa-wine-bottle"></i>
+                                                </div>
+                                                <div class="item-add">
+                                                    <i class="fas fa-plus"></i>
+                                                </div>
+                                            
+                                            </div>
+                                        </a>
+                                        <?php
+                                    }
+                                } else {
+                                    echo "Aucun diluants trouvé";
+                                }
+
+                            }
+                        } else {
+                            header('Location: soiree.php?page=attribution&subpage=alcools');
+                        }
+                    ?>
+                
                 </div>
-                <div class="item-content">
-                    <div class="item-icon">
-                        <i class="fas fa-wine-bottle"></i>
-                    </div>
-                    <div class="item-add">
-                        <i class="fas fa-plus"></i>
-                    </div>
-                   
-                </div>
-            </a>
-            <a href="?id=1&tuyau=8" class="item">
-                <div class="item-header">
-                    <h3>Jaeger Bomb</h3>
-                </div>
-                <div class="item-content">
-                    <div class="item-icon">
-                        <i class="fas fa-wine-bottle"></i>
-                    </div>
-                    <div class="item-add">
-                        <i class="fas fa-plus"></i>
-                    </div>
-                   
-                </div>
-            </a>
-            <a href="?id=1&tuyau=8" class="item">
-                <div class="item-header">
-                    <h3>Captain-Coca</h3>
-                </div>
-                <div class="item-content">
-                    <div class="item-icon">
-                        <i class="fas fa-wine-bottle"></i>
-                    </div>
-                    <div class="item-add">
-                        <i class="fas fa-plus"></i>
-                    </div>
-                   
-                </div>
-            </a>
-           
-        </div>
-    </section>
+            </section>
+            <?php
+        }
+    } else {
+        header('Location: soiree.php?page=soiree');
+    }
+?>
+    
+    
     <section class="popup-overlay">
         <div class="popup">
             <div class="popup-header">
