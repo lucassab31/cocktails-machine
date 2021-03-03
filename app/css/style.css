@@ -21,7 +21,7 @@ body {
 
 main {
     height: calc(100% - 85px);
-    overflow-y: scroll;
+    /* overflow-y: scroll; */
 }
 
 a {
@@ -140,7 +140,9 @@ a {
     row-gap: 25px;
 }
 
-.item {
+.choix .item {
+    cursor: pointer;
+    text-align: left;
     width: 200px;
     height: 200px;
     margin: auto;
@@ -156,25 +158,27 @@ a {
     position: relative;
 }
 
-.item-header h3 {
-    font-size: 1.4em;
+.choix .item .item-header h3 {
+    font-size: 1.4rem;
     font-weight: 500;
     color: #ffffd7;
 }
 
-.item-icon {
-    font-size: 6em;
+.choix .item .item-icon {
+    color: white;
+    font-size: 6rem;
     position: absolute;
     bottom: 5px;
 }
 
-.item-add {
+.choix .item .item-add {
+    color: white;
     display: flex;
     align-items: center;
     justify-content: center;
     height: 50px;
     width: 50px;
-    font-size: 1.8em;  
+    font-size: 1.8rem;  
     border-radius:50% ;
     -webkit-border-radius:50% ;
     -moz-border-radius:50% ;
@@ -186,23 +190,15 @@ a {
     right: 5px;
 }
 
-/* POPUP */
-
-.popup-overlay {
-    display: flex;
-    position: absolute;
-    align-items: center;
-    justify-content: center;
-    top: 0;
-    left: 0;
-    z-index: 10;
+/* ADDING */
+.adding {
     height: 100%;
-    width: 100%;
-    background: rgba(0, 0, 0, 0.6);
-    display: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.popup {
+.adding .card {
     height: 60%;
     width: 70%;
     background-color: #3b3f42;
@@ -214,29 +210,35 @@ a {
     padding: 10px 10px;
 }
 
-.popup-header {
+.adding .card-header {
     font-size: 2em;
     color: #ff7f00;
 }
 
-.popup-header h2, .popup-header h4 {
+.adding .card-header h2, .adding .card-header h4 {
     display: inline;
 }
 
-.popup-header h4 {
+.adding .card-header h4 {
     color: #fff;
-    margin-left: 150px;
+    margin-left: 50%;
     font-size: 1.6rem;
     font-weight: 200;
 }
 
-.popup-header .close {
-    float: right;
-    color:#fff;
-    cursor: pointer;
-}
-
-.popup-header span {
+.adding .card-header span {
     font-weight: 500;
     color: orangered;
+}
+
+.adding .card-header a {
+    float: right;
+    transition: all 200ms ease-in-out;
+    -webkit-transition: all 200ms ease-in-out;
+    -moz-transition: all 200ms ease-in-out;
+    -ms-transition: all 200ms ease-in-out;
+    -o-transition: all 200ms ease-in-out;
+}
+.adding .card-header a:hover {
+    color: #000;
 }
