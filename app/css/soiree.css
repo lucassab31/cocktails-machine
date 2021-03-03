@@ -203,3 +203,37 @@
     border: 1px solid grey;
     color: grey;
 }
+
+/* CREATION SOIREE */
+
+#creation-soiree{
+    width: 80%;
+    margin: auto;
+}
+.creation-soiree_content{
+    display: flex;
+    margin-top: 1em ;
+    background-color:#3b3f42;
+    width:400px;
+    align-content: center;
+    justify-content: center;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+  /*   flex-direction: column; */
+}
+
+.creation-soiree_content form{
+    display: flex;
+}
+
+.creation-soiree_text{
+    width:50%;
+    display:contents;
+}
+
+.creation-soiree_checkbox{
+    width:50%;
+}
