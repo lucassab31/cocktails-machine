@@ -21,7 +21,7 @@ body {
 
 main {
     height: calc(100% - 85px);
-    /* overflow-y: scroll; */
+    overflow-y: scroll;
 }
 
 a {
@@ -184,10 +184,17 @@ a {
     -moz-border-radius:50% ;
     -ms-border-radius:50% ;
     -o-border-radius:50% ;
-    background-color: #2ecc71;
     position: absolute;
     bottom: 5px;
     right: 5px;
+    background-color: #0066ff;
+}
+
+.choix .item .item-add.add {
+    background-color: #2ecc71;
+}
+.choix .item .item-add.used {
+    background-color: 	#ff9900;
 }
 
 /* ADDING */
@@ -213,17 +220,25 @@ a {
 .adding .card-header {
     font-size: 2em;
     color: #ff7f00;
+    position: relative;
+    display: flex;
+    align-items: center;
 }
 
 .adding .card-header h2, .adding .card-header h4 {
     display: inline;
 }
 
+.adding .card-header h2 {
+    width: 70%;
+}
+
 .adding .card-header h4 {
     color: #fff;
-    margin-left: 50%;
     font-size: 1.6rem;
     font-weight: 200;
+    width: 30%;
+    text-align: center;
 }
 
 .adding .card-header span {
@@ -232,7 +247,9 @@ a {
 }
 
 .adding .card-header a {
-    float: right;
+    position: absolute;
+    top: -5px;
+    right: 0;
     transition: all 200ms ease-in-out;
     -webkit-transition: all 200ms ease-in-out;
     -moz-transition: all 200ms ease-in-out;

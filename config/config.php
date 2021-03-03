@@ -5,5 +5,7 @@
     define("DB_PASS", "");
     define("DB_NAME", "cocktails-machine");
 
-    define("SITE_TITLE", "Cocktails Machine")
+    define("SITE_TITLE", "Cocktails Machine");
+
+    define("PIN", 1416);
 ?>

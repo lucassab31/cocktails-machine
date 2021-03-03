@@ -2,11 +2,11 @@
 <section class="adding">
     <div class="card">
         <div class="card-header">
-            <h2><?= $alcool->nom ?></h2>
+            <h2><?= $diluant->nom ?></h2>
             <h4><span id="vol">1</span>L - tuyaux : <span id="tuyaux"></span></h4>
-            <a href="soiree.php?id=<?= $_SESSION['idSoiree'] ?>" class="close">&times;</a>   
+            <a href="soiree.php?id=<?= $_SESSION['idSoiree'] ?>&subpage=diluants" class="close">&times;</a>   
         </div>
-        <form class="card-content" action="alcool.php?id=<?= $alcool->idAlcool ?>" method="POST">
+        <form class="card-content" action="diluant.php?id=<?= $diluant->idDiluant ?>" method="POST">
             <div class="content-volume">
                 <h3>Volume</h3>
                 <div class="container-volume" id="volumeBtns">

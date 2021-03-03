@@ -13,8 +13,7 @@
         }
 
         public function get($id) {
-            $this->db->query('SELECT * FROM diluants WHERE idDiluant=:id');
-            $this->db->bind(":id", $id);
+            $this->db->query("SELECT * FROM diluants WHERE idDiluant=$id");
             $results = $this->db->single();
             return $results;
         }
