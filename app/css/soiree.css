@@ -41,7 +41,8 @@
 
 /* ATTRIBUTION */
 #attribution {
-    width: 80%;
+    height: 100%;
+    width: 90%;
     margin: auto;
     position: relative;
 }
@@ -75,12 +76,12 @@
 
 /* LAUNCH */
 .launch {
-    position: fixed;
-    right: 120px;
-    top: 580px;
+    position: absolute;
+    right: 20px;
+    bottom: 15px;
     background-color: red;
-    height: 100px;
-    width: 100px;
+    height: 75px;
+    width: 75px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -98,7 +99,7 @@
 
 .launch i {
     color: #fff;
-    font-size: 3em;
+    font-size: 2.5em;
     transition: all 200ms ease-in-out;
     -webkit-transition: all 200ms ease-in-out;
     -moz-transition: all 200ms ease-in-out;
@@ -120,12 +121,12 @@
     padding: 5px 10px;
 }
 
-.adding :is(.content-volume, .content-tuyaux) {
+.adding .content-volume, .adding  .content-tuyaux {
     width: 50%;
 }
 
 .adding .card-content h3 {
-    font-size: 1.2em;
+    font-size: 1.4em;
     margin-bottom: 10px;
     text-align: center;
 }
@@ -143,8 +144,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 65px;
-    height: 65px;
+    width: 100px;
+    height: 100px;
     cursor: pointer;
     border-radius: 50%;
     -webkit-border-radius: 50%;
@@ -172,7 +173,7 @@
 .adding .container-volume {
     display:grid;
     grid-template-columns: 1fr 1fr;
-    gap: 10px;
+    gap: 5px;
     justify-items: center;
 }
 
@@ -232,8 +233,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 65px;
-    height: 65px;
+    width: 100px;
+    height: 100px;
     cursor: pointer;
     color: #fff;
     border: 2px solid #fff;

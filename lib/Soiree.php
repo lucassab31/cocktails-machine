@@ -7,7 +7,7 @@
         }
 
         public function getAll() {
-            $this->db->query('SELECT * FROM soirees ORDER BY dateSoiree DESC');
+            $this->db->query("SELECT * FROM soirees ORDER BY dateSoiree DESC");
             $results = $this->db->resultSet();
             return $results;
         }

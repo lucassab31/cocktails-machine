@@ -84,8 +84,8 @@
             }
         ?>
     </div>
-    <a href="service.php" class="launch">
-        <i class="fas fa-rocket"></i>
-    </a>
 </section>
+<a href="service.php" class="launch">
+    <i class="fas fa-rocket"></i>
+</a>
 <?php include 'inc/footer.php'; ?>
