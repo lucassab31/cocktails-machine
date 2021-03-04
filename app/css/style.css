@@ -11,9 +11,10 @@ html {
 }
 
 body {
+    overflow: hidden;
     position: relative;
-    width: 1280px;
-    height: 720px;
+    width: 1024px;
+    height: 600px;
     background-color: #000;
     color: #fff;
     font-family: 'Rubik', sans-serif;
@@ -21,7 +22,7 @@ body {
 
 main {
     height: calc(100% - 85px);
-    /* overflow-y: scroll; */
+    overflow-y: scroll;
 }
 
 a {
@@ -90,7 +91,7 @@ a {
 .page-selector a {
     border: none;
     color: white;
-    padding: 4px 24px;
+    padding: 5px 24px;
     text-align: center;
     text-decoration: none;
     font-size: 1.3em;
@@ -137,7 +138,7 @@ a {
 .choix {
     display: grid;
     grid-template-columns:repeat(4,1fr);
-    row-gap: 25px;
+    gap: 25px;
 }
 
 .choix .item {
@@ -184,10 +185,17 @@ a {
     -moz-border-radius:50% ;
     -ms-border-radius:50% ;
     -o-border-radius:50% ;
-    background-color: #2ecc71;
     position: absolute;
     bottom: 5px;
     right: 5px;
+    background-color: #0066ff;
+}
+
+.choix .item .item-add.add {
+    background-color: #2ecc71;
+}
+.choix .item .item-add.used {
+    background-color: 	#ff9900;
 }
 
 /* ADDING */
@@ -199,8 +207,8 @@ a {
 }
 
 .adding .card {
-    height: 60%;
-    width: 70%;
+    height: 95%;
+    width: 80%;
     background-color: #3b3f42;
     border-radius: 20px;
     -webkit-border-radius: 20px;
@@ -213,17 +221,24 @@ a {
 .adding .card-header {
     font-size: 2em;
     color: #ff7f00;
+    position: relative;
+    display: flex;
+    align-items: center;
 }
 
 .adding .card-header h2, .adding .card-header h4 {
     display: inline;
 }
 
+.adding .card-header h2 {
+    width: 70%;
+}
+
 .adding .card-header h4 {
     color: #fff;
-    margin-left: 50%;
     font-size: 1.6rem;
     font-weight: 200;
+    width: 30%;
 }
 
 .adding .card-header span {
@@ -232,7 +247,10 @@ a {
 }
 
 .adding .card-header a {
-    float: right;
+    font-size: 1.4em;
+    position: absolute;
+    top: -5px;
+    right: 0;
     transition: all 200ms ease-in-out;
     -webkit-transition: all 200ms ease-in-out;
     -moz-transition: all 200ms ease-in-out;

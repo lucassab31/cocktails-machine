@@ -41,7 +41,8 @@
 
 /* ATTRIBUTION */
 #attribution {
-    width: 80%;
+    height: 100%;
+    width: 90%;
     margin: auto;
     position: relative;
 }
@@ -73,18 +74,59 @@
     -o-border-radius: 10px 0 0 10px;
 }
 
+/* LAUNCH */
+.launch {
+    position: absolute;
+    right: 20px;
+    bottom: 15px;
+    background-color: red;
+    height: 75px;
+    width: 75px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    transition: all 200ms ease-in-out;
+    -webkit-transition: all 200ms ease-in-out;
+    -moz-transition: all 200ms ease-in-out;
+    -ms-transition: all 200ms ease-in-out;
+    -o-transition: all 200ms ease-in-out;
+}
+
+.launch i {
+    color: #fff;
+    font-size: 2.5em;
+    transition: all 200ms ease-in-out;
+    -webkit-transition: all 200ms ease-in-out;
+    -moz-transition: all 200ms ease-in-out;
+    -ms-transition: all 200ms ease-in-out;
+    -o-transition: all 200ms ease-in-out;
+}
+
+.launch:hover i {
+    transform: translate(10px, -10px);
+    -webkit-transform: translate(10px, -10px);
+    -moz-transform: translate(10px, -10px);
+    -ms-transform: translate(10px, -10px);
+    -o-transform: translate(10px, -10px);
+}
+
 /* ADDING */
 .adding .card-content {
     display: flex;
     padding: 5px 10px;
 }
 
-.adding :is(.content-volume, .content-tuyaux) {
+.adding .content-volume, .adding  .content-tuyaux {
     width: 50%;
 }
 
 .adding .card-content h3 {
-    font-size: 1.2em;
+    font-size: 1.4em;
     margin-bottom: 10px;
     text-align: center;
 }
@@ -102,8 +144,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 65px;
-    height: 65px;
+    width: 100px;
+    height: 100px;
     cursor: pointer;
     border-radius: 50%;
     -webkit-border-radius: 50%;
@@ -131,7 +173,7 @@
 .adding .container-volume {
     display:grid;
     grid-template-columns: 1fr 1fr;
-    gap: 10px;
+    gap: 5px;
     justify-items: center;
 }
 
@@ -191,8 +233,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 65px;
-    height: 65px;
+    width: 100px;
+    height: 100px;
     cursor: pointer;
     color: #fff;
     border: 2px solid #fff;
