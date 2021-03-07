@@ -1,5 +1,5 @@
 <?php include 'inc/header.php'; ?>
-<section class="adding">
+<section class="adding card-container">
     <div class="card">
         <div class="card-header">
             <h2><?= $alcool->nom ?></h2>

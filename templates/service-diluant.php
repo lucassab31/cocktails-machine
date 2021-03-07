@@ -2,13 +2,13 @@
 <section class="service card-container">
     <div class="card">
         <div class="card-header">
-            <h2><?= $alcool->nom ?></h2>
-            <h4><span id="vol">10</span>% d'alcool <span id="tuyaux"></span></h4>
-            <a href="service.php?subpage=alcools" class="close">&times;</a>   
+            <h2><?= $diluant->nom ?></h2>
+            <h4><span id="vol">10</span>% de diluant <span id="tuyaux"></span></h4>
+            <a href="service.php?subpage=diluants" class="close">&times;</a>   
         </div>
-        <form class="card-content" action="service-alcool.php?id=<?= $alcool->idAlcool ?>" method="POST">
+        <form class="card-content" action="service-diluant.php?id=<?= $diluant->idDiluant ?>" method="POST">
             <div class="content-volume">
-                <h3>Alcool dans le verre</h3>
+                <h3>Diluant dans le verre</h3>
                 <div class="container-volume" id="volumeBtns">
                     <div>
                         <input onchange="volumeBtn(this);" value="10" type="radio" name="volume" id="volume-10" checked>
@@ -26,14 +26,6 @@
                         <input onchange="volumeBtn(this);" value="80"  type="radio" name="volume" id="volume-80">
                         <label for="volume-80"><i class="fas fa-tint"></i> <i class="fas fa-tint"></i> <i class="fas fa-tint"></i> <i class="fas fa-tint"></i></label>
                     </div>
-                    <div>
-                            <input onchange="volumeBtn(this);" value="2"  type="radio" name="volume" id="volume-shooter1">
-                            <label for="volume-shooter1"><i class="fas fa-glass-martini-alt"></i></label>
-                        </div>
-                        <div>
-                            <input onchange="volumeBtn(this);" value="1"  type="radio" name="volume" id="volume-shooter2">
-                            <label for="volume-shooter2"><i class="fas fa-glass-martini"></i></label>
-                        </div>
                 </div>
                 <div class="content-volume-jauge">
                     <input onchange="volumeJauge(this)" type="range" id="volume" name="volume" min="0" max="100" step="1" list="volumes" >
@@ -50,7 +42,7 @@
             <div class="content-tuyaux">
                 <h3>Quantité restante</h3>
                 <div class="content-volume-jauge">
-                    <input type="range" id="volume" name="volume" min="0" max="2" step="0.25" list="volumes" value="<?= $volAlcool->volume ?>" disabled>
+                    <input type="range" id="volume" name="volume" min="0" max="2" step="0.25" list="volumes" value="<?= $volDiluant->volume ?>" disabled>
                     <datalist id="volumes">
                         <option value="0" label="0">
                         <option value="0.5" label="0,5L">

@@ -8,4 +8,5 @@
     define("SITE_TITLE", "Cocktails Machine");
 
     define("PIN", 1416);
+    define("VOL_VERRE", 33);
 ?>

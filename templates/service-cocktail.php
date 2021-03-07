@@ -2,11 +2,11 @@
 <section class="service card-container">
     <div class="card">
         <div class="card-header">
-            <h2><?= $alcool->nom ?></h2>
+            <h2><?= $cocktail->nom ?></h2>
             <h4><span id="vol">10</span>% d'alcool <span id="tuyaux"></span></h4>
-            <a href="service.php?subpage=alcools" class="close">&times;</a>   
+            <a href="service.php" class="close">&times;</a>   
         </div>
-        <form class="card-content" action="service-alcool.php?id=<?= $alcool->idAlcool ?>" method="POST">
+        <form class="card-content" action="service-cocktail.php?id=<?= $cocktail->idCocktail ?>" method="POST">
             <div class="content-volume">
                 <h3>Alcool dans le verre</h3>
                 <div class="container-volume" id="volumeBtns">
@@ -26,14 +26,7 @@
                         <input onchange="volumeBtn(this);" value="80"  type="radio" name="volume" id="volume-80">
                         <label for="volume-80"><i class="fas fa-tint"></i> <i class="fas fa-tint"></i> <i class="fas fa-tint"></i> <i class="fas fa-tint"></i></label>
                     </div>
-                    <div>
-                            <input onchange="volumeBtn(this);" value="2"  type="radio" name="volume" id="volume-shooter1">
-                            <label for="volume-shooter1"><i class="fas fa-glass-martini-alt"></i></label>
-                        </div>
-                        <div>
-                            <input onchange="volumeBtn(this);" value="1"  type="radio" name="volume" id="volume-shooter2">
-                            <label for="volume-shooter2"><i class="fas fa-glass-martini"></i></label>
-                        </div>
+
                 </div>
                 <div class="content-volume-jauge">
                     <input onchange="volumeJauge(this)" type="range" id="volume" name="volume" min="0" max="100" step="1" list="volumes" >
@@ -50,14 +43,23 @@
             <div class="content-tuyaux">
                 <h3>Quantité restante</h3>
                 <div class="content-volume-jauge">
-                    <input type="range" id="volume" name="volume" min="0" max="2" step="0.25" list="volumes" value="<?= $volAlcool->volume ?>" disabled>
-                    <datalist id="volumes">
-                        <option value="0" label="0">
-                        <option value="0.5" label="0,5L">
-                        <option value="1" label="1L">
-                        <option value="1.75" label="1,75L">
-                        <option value="2" label="2L">
-                    </datalist>
+                    <?php
+                        foreach($vols as $volumes) {
+                            foreach($volumes as $vol) {
+                                ?>
+                                <h4><?= $vol->nom ?></h4>
+                                <input type="range" id="volume" name="volume" min="0" max="2" step="0.25" list="volumes" value="<?= $vol->volume ?>" disabled>
+                                <datalist id="volumes">
+                                    <option value="0" label="0">
+                                    <option value="0.5" label="0,5L">
+                                    <option value="1" label="1L">
+                                    <option value="1.75" label="1,75L">
+                                    <option value="2" label="2L">
+                                </datalist>
+                                <?php
+                            }
+                        }
+                    ?>
                 </div>
                 <div>
                     <button name="sub" style="background-color: #2ecc71"><i class="fas fa-check"></i></button>

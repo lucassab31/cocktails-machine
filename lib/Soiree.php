@@ -62,6 +62,54 @@
             $results = $this->db->resultSet();
             return $results;
         }
+        public function getVolumeC($idC, $idS) {
+            $results = array();
+            $this->db->query("SELECT DISTINCT
+                                    alcools.nom,
+                                    composea.volume
+                                FROM
+                                    cocktails,
+                                    alcools,
+                                    composea,
+                                    alcooliser,
+                                    soirees
+                                WHERE
+                                    cocktails.idCocktail = $idC
+                                    AND soirees.idSoiree = $idS
+                                    AND alcooliser.idCocktail = cocktails.idCocktail
+                                    AND alcools.idAlcool = alcooliser.idAlcool
+                                    AND composea.idSoiree = soirees.idSoiree
+                                    AND composea.idAlcool = alcools.idAlcool");
+            $results['alcools'] = $this->db->resultSet();
+            $this->db->query("SELECT DISTINCT
+                                    diluants.nom,
+                                    composed.volume
+                                FROM
+                                    cocktails,
+                                    diluants,
+                                    composed,
+                                    diluer,
+                                    soirees
+                                WHERE
+                                    cocktails.idCocktail = $idC
+                                    AND soirees.idSoiree = $idS
+                                    AND diluer.idCocktail = cocktails.idCocktail
+                                    AND diluants.idDiluant = diluer.idDiluant
+                                    AND composed.idSoiree = soirees.idSoiree
+                                    AND composed.idDiluant = diluants.idDiluant");
+            $results['diluants'] = $this->db->resultSet();
+            return $results;
+        }
+        public function getVolumeA($idA, $idS) {
+            $this->db->query("SELECT * FROM  composea WHERE composea.idSoiree=$idS AND composea.idAlcool = $idA");
+            $result = $this->db->single();
+            return $result;
+        }
+        public function getVolumeD($idD, $idS) {
+            $this->db->query("SELECT * FROM composed WHERE composed.idSoiree=$idS AND composed.idDiluant = $idD ");
+            $result = $this->db->single();
+            return $result;
+        }
 
         public function insertA($data) {
             $this->db->query("INSERT INTO composea (idAlcool, idSoiree, tuyau, volume) VALUES (:idA, :idS, :tuyau, :volume)");
@@ -76,6 +124,21 @@
             $this->db->bind(':idD', $data['idD']);
             $this->db->bind(':idS', $data['idS']);
             $this->db->bind(':tuyau', $data['tuyau']);
+            $this->db->bind(':volume', $data['volume']);
+            return $this->db->execute();
+        }
+
+        public function boireA($data) {
+            $this->db->query("INSERT INTO boirea (idAlcool, idUser, heure, volume) VALUES (:idA, :idU, NOW(), :volume)");
+            $this->db->bind(':idA', $data['idA']);
+            $this->db->bind(':idU', $data['idU']);
+            $this->db->bind(':volume', $data['volume']);
+            return $this->db->execute();
+        }
+        public function boireD($data) {
+            $this->db->query("INSERT INTO boired (idDiluant, idUser, heure, volume) VALUES (:idD, :idU, NOW(), :volume)");
+            $this->db->bind(':idD', $data['idD']);
+            $this->db->bind(':idU', $data['idU']);
             $this->db->bind(':volume', $data['volume']);
             return $this->db->execute();
         }

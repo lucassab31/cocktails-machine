@@ -8,6 +8,8 @@
     if (isset($_POST['submitP'])) {
         if ($_POST['pin2'] == PIN) {
             redirect('soirees.php', "Authentification validée", 'success');
+        } else {
+            redirect('index.php', "Pin invalide", 'error');
         }
     }
 

@@ -4,6 +4,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Rubik', sans-serif;
 }
 
 html {
@@ -199,14 +200,14 @@ a {
 }
 
 /* ADDING */
-.adding {
+.card-container {
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.adding .card {
+.card {
     height: 95%;
     width: 80%;
     background-color: #3b3f42;
@@ -218,7 +219,7 @@ a {
     padding: 10px 10px;
 }
 
-.adding .card-header {
+.card-header {
     font-size: 2em;
     color: #ff7f00;
     position: relative;
@@ -226,27 +227,27 @@ a {
     align-items: center;
 }
 
-.adding .card-header h2, .adding .card-header h4 {
+.card-header h2, .adding .card-header h4 {
     display: inline;
 }
 
-.adding .card-header h2 {
+.card-header h2 {
     width: 70%;
 }
 
-.adding .card-header h4 {
+.card-header h4 {
     color: #fff;
     font-size: 1.6rem;
     font-weight: 200;
     width: 30%;
 }
 
-.adding .card-header span {
+.card-header span {
     font-weight: 500;
     color: orangered;
 }
 
-.adding .card-header a {
+.card-header a {
     font-size: 1.4em;
     position: absolute;
     top: -5px;
@@ -257,6 +258,57 @@ a {
     -ms-transition: all 200ms ease-in-out;
     -o-transition: all 200ms ease-in-out;
 }
-.adding .card-header a:hover {
+.card-header a:hover {
     color: #000;
+}
+
+/* FORM */
+.form-lr {
+    margin-top: 1em;
+    display: flex;
+}
+
+.form-lr .left, .form-lr .right {
+    width: 50%;
+}
+
+.form-control {
+    position: relative;
+    margin: 1em;
+}
+
+.form-control input[type="text"], .form-control input[type="number"]{
+    padding: 5px 10px;
+    font-size: 1.4em;
+    color: #fff;
+    outline: none;
+    background: none;
+    border: none;
+    border-bottom: 2px solid #fff;
+}
+
+.form-control input[type="text"]+label, .form-control input[type="number"]+label {
+    pointer-events: none;
+    font-size: 1.4em;
+    cursor:text;
+    position: absolute;
+    top: 5px;
+    left: 9px;
+    transition: all 200ms ease-in-out;
+    -webkit-transition: all 200ms ease-in-out;
+    -moz-transition: all 200ms ease-in-out;
+    -ms-transition: all 200ms ease-in-out;
+    -o-transition: all 200ms ease-in-out;
+}
+
+.form-control input[type="text"]:focus+label, .form-control input[type="number"]:focus+label,
+.form-control.focus input[type="text"]+label, .form-control.focus input[type="number"]+label,
+.form-control.write input[type="text"]+label, .form-control.write input[type="number"]+label {
+    font-size: 1em;
+    top: -15px;
+    left: 0;
+}
+
+.form-control.write input[type="text"]+label, .form-control.write input[type="number"]+label {
+    color: #0066ff;
 }

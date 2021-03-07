@@ -116,26 +116,26 @@
 }
 
 /* ADDING */
-.adding .card-content {
+.card-content {
     display: flex;
     padding: 5px 10px;
 }
 
-.adding .content-volume, .adding  .content-tuyaux {
+.content-volume, .content-tuyaux {
     width: 50%;
 }
 
-.adding .card-content h3 {
+.card-content h3 {
     font-size: 1.4em;
     margin-bottom: 10px;
     text-align: center;
 }
 
-.adding .card-content input[type="radio"] {
+.card-content input[type="radio"] {
     display: none;
 }
 
-.adding .card-content input[type="radio"]+label {
+.card-content input[type="radio"]+label {
     font-family: 'Rubik', sans-serif;
     border: 2px solid #fff;
     color: #fff;
@@ -159,77 +159,77 @@
     -o-transition: all 100ms ease-in-out;
 }
 
-.adding .card-content input[type="radio"]:checked+label{
+.card-content input[type="radio"]:checked+label{
     border: 4px solid #fff;
     font-weight: 700;
 }
 
-.adding .card-content input[type="radio"]:disabled+label{
+.card-content input[type="radio"]:disabled+label{
     cursor: not-allowed;
     border: 1px solid grey;
     color: grey;
 }
 
-.adding .container-volume {
+.container-volume {
     display:grid;
     grid-template-columns: 1fr 1fr;
     gap: 5px;
     justify-items: center;
 }
 
-.adding .container-tuyaux {
+.container-tuyaux {
     display:grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 15px;
     justify-items: center;
 }
 
-.adding .container-volume div:nth-child(1) label {
+.container-volume div:nth-child(1) label {
     background-color: #d72631;
 }
-.adding .container-volume div:nth-child(2) label {
+.container-volume div:nth-child(2) label {
     background-color: #12a4d9;
 }
-.adding .container-volume div:nth-child(3) label {
+.container-volume div:nth-child(3) label {
     background-color: #f5d300;
 }
-.adding .container-volume div:nth-child(4) label {
+.container-volume div:nth-child(4) label {
     background-color: #d9138a;
 }
-.adding .container-volume div:nth-child(5) label {
+.container-volume div:nth-child(5) label {
     background-color: #652ec7;
 }
-.adding .container-volume div:nth-child(6) label {
+.container-volume div:nth-child(6) label {
     background-color: #13ca91;
 }
 
-.adding .content-volume-jauge input{
+.content-volume-jauge input{
     width: 100%;
     margin-top: 10px;
 }
 
-.adding .content-volume-jauge input[type=range] + datalist {
+.content-volume-jauge input[type=range] + datalist {
     display: block;
     margin-top: -4px;
 }
 
-.adding .content-volume-jauge input[type=range] + datalist option {
+.content-volume-jauge input[type=range] + datalist option {
     display: inline-block;
     width: calc((100% - 12px) / (5 - 1));
     text-align: center;
 }
 
-.adding .content-volume-jauge input[type=range] + datalist option:first-child {
+.content-volume-jauge input[type=range] + datalist option:first-child {
     width: calc((100% - 12px) / ((5 - 1) * 2) + 6px);
     text-align: left;
 }
 
-.adding .content-volume-jauge input[type=range] + datalist option:last-child {
+.content-volume-jauge input[type=range] + datalist option:last-child {
     width: calc((100% - 12px) / ((5 - 1) * 2) + 6px);
     text-align: right;
 }
 
-.adding .card-content button {
+.card-content button {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -260,36 +260,39 @@
     color: grey;
 }
 
-/* CREATION SOIREE */
-
-#creation-soiree{
-    width: 80%;
-    margin: auto;
+/* CREATE SOIREE */
+.switch-flat {
+	padding: 0;
+	background: #FFF;
+	background-image: none;
 }
-.creation-soiree_content{
-    display: flex;
-    margin-top: 1em ;
-    background-color:#3b3f42;
-    width:400px;
-    align-content: center;
-    justify-content: center;
-    border-radius: 10px;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    -ms-border-radius: 10px;
-    -o-border-radius: 10px;
-  /*   flex-direction: column; */
+.switch-flat .switch-label {
+	background: #FFF;
+	border: solid 2px #eceeef;
+	box-shadow: none;
 }
-
-.creation-soiree_content form{
-    display: flex;
+.switch-flat .switch-label:after {
+    content: "";
+	color: #0088cc;
 }
-
-.creation-soiree_text{
-    width:50%;
-    display:contents;
+.switch-flat .switch-handle {
+	top: 6px;
+	left: 6px;
+	background: #dadada;
+	width: 22px;
+	height: 22px;
+	box-shadow: none;
 }
-
-.creation-soiree_checkbox{
-    width:50%;
+.switch-flat .switch-handle:before {
+    content: "";
+	background: #eceeef;
+}
+.switch-flat .switch-input:checked ~ .switch-label {
+	background: #FFF;
+	border-color: #0088cc;
+}
+.switch-flat .switch-input:checked ~ .switch-handle {
+	left: 72px;
+	background: #0088cc;
+	box-shadow: none;
 }
